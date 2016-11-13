@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                            http://www.springframework.org/schema/beans/spring-beans.xsd
+                            http://www.springframework.org/schema/aop
+                            http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+                            http://www.springframework.org/schema/tx
+                            http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+                            ">
+    <aop:aspectj-autoproxy/>
+    <tx:annotation-driven/>
+    <bean id="audience" class="com.volshell.beans.Audience"/>
+    <bean id="performer" class="com.volshell.beans.Performer"/>
+    <bean id="user" class="com.volshell.beans.User">
+        <property name="username" value="volshell"/>
+        <property name="password" value="volshell"/>
+        <property name="fullname" value="volshell"/>
+        <property name="city" ref="city"/>
+    </bean>
+    <bean id="city" class="com.volshell.beans.City">
+        <property name="name" value="hangzhou"/>
+        <property name="population" value="10001"/>
+    </bean>
+
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="url" value="jdbc:mysql://localhost:3306/test"/>
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="username" value="volshell"/>
+        <property name="password" value="volshell"/>
+    </bean>
+    <bean id="jdbcTamplate" class="org.springframework.jdbc.core.simple.SimpleJdbcTemplate">
+        <constructor-arg ref="dataSource"/>
+    </bean>
+    <bean id="userDAO" class="com.volshell.UserDAO">
+        <property name="jdbcTemplate" ref="jdbcTamplate"/>
+    </bean>
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+</beans>

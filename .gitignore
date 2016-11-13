@@ -1,0 +1,15 @@
+# ignore files
+
+target/*
+*.settings
+*.classpath
+*.project
+*.bak
+
+.idea/*
+mates-contacts.iml
+
+.gitignore
+将删除 .idea/
+将删除 pom.xml
+将删除 src/
