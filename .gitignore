@@ -4,7 +4,7 @@ target/*
 *.project
 *.bak
 
-.idea/*
+.idea/
 *.iml
 
 mates-contacts-web/target/*
@@ -12,9 +12,6 @@ mates-contacts-test/target/*
 mates-contacts-service/target/*
 mates-contacts-config/target/*
 mates-contacts-biz/target/*
+
 将删除 .idea/
-将删除 mates-contacts-biz/src/
-将删除 mates-contacts-config/src/
-将删除 mates-contacts-service/src/
-将删除 mates-contacts-test/src/
-将删除 mates-contacts-web/src/
+
