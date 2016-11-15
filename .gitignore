@@ -1,5 +1,3 @@
-# ignore files
-
 target/*
 *.settings
 *.classpath
@@ -7,9 +5,16 @@ target/*
 *.bak
 
 .idea/*
-mates-contacts.iml
+*.iml
 
-.gitignore
+mates-contacts-web/target/*
+mates-contacts-test/target/*
+mates-contacts-service/target/*
+mates-contacts-config/target/*
+mates-contacts-biz/target/*
 将删除 .idea/
-将删除 pom.xml
-将删除 src/
+将删除 mates-contacts-biz/src/
+将删除 mates-contacts-config/src/
+将删除 mates-contacts-service/src/
+将删除 mates-contacts-test/src/
+将删除 mates-contacts-web/src/
