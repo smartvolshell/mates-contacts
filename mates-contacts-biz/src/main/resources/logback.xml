@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+    <!-- 控制台输出日志 -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <target>System.out</target>
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>%d %-4relative [LOGBACK] [%thread] [%-5level] [%logger:%L] - %msg%n</pattern>
+        </layout>
+    </appender>
+    <!--标准日更新写文件日志-->
+    <appender name="mates-contacts-log" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>./log/mates-contacts.log</File>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamepattern>./log/mates-contacts.log.%d{yyyy-MM-dd}</FileNamepattern>
+            <MaxHistory>30</MaxHistory>
+        </rollingPolicy>
+        <layout class="ch.qos.logback.classic.patternLayout">
+            <pattern>%d %-4relative [LOGBACK] [%thread] [%-5level] [%logger:%L] - %msg%n</pattern>
+        </layout>
+    </appender>
+    <root name="com.xxx.xxx">
+        <level value="WARN" />
+        <appender-ref ref="STDOUT" />
+    </root>
+</configuration>
